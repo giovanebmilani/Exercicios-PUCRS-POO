@@ -28,7 +28,8 @@ public class Cofrinho {
         if (this.moedas.isEmpty()) {
             return null;
         } else {
-            Moeda moedaRemovida = this.moedas.remove(-1);
+            int ultimoIndex = this.moedas.size() - 1;
+            Moeda moedaRemovida = this.moedas.remove(ultimoIndex);
             return moedaRemovida;
         }
     }
