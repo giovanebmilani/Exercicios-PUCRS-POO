@@ -9,11 +9,19 @@ public class Estoque {
     }
 
     public int getQuantidadeDisponivel(int codigo) {
-
-        return 0;
+        for (ItemEstoque item : items) {
+            if (item.getProduto().getCodigo() == codigo) {
+                return item.getQuantidadeDisponivel();
+            }
+        }
+        return -1;
     }
 
     public boolean baixaEstoque(int codigo, int qtd) {
+        if (qtd < 0) {
+            return false;
+        }
+
         return true;
     }
 
