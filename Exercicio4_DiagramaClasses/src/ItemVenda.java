@@ -31,7 +31,7 @@ public class ItemVenda {
     }
 
     public double getValorItem() {
-        return 0.0;
+        return this.quantidade*this.precoUnitarioCobrado;
     }
 
 }

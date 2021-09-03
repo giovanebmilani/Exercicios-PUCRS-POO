@@ -15,8 +15,31 @@ public class Venda {
         return this.numero;
     }
 
-    public boolean insereItem(Produto produto, int qtd) {
+    public boolean temEstoqueDisponivel(Produto produto, int qtd) {
         return true;
+    }
+
+    public boolean jaExiste(ItemVenda itemVenda) {
+        for (ItemVenda item: items) {
+            if (item == itemVenda) 
+                return true; 
+        }
+        return false;
+    }
+
+    public boolean insereItem(Produto produto, int qtd) {
+        if (produto == null) 
+            return false;
+        if (qtd < 0) 
+            return false;
+    
+            
+        ItemVenda item = new ItemVenda(1, produto, qtd, produto.getPrecoUnitario());
+        if (jaExiste(item))
+            return false;
+        
+        
+        return this.items.add(item);
     }
 
     public boolean removeItem(int numeroItem) {
