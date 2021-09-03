@@ -22,11 +22,9 @@ public class ItemEstoque {
         if (qtd < 0) {
             return false;
         }
-
         if (qtd > this.quantidadeDisponivel) {
             return false;
         }
-
         this.quantidadeDisponivel -= qtd;
         return true;
     }
@@ -35,7 +33,6 @@ public class ItemEstoque {
         if (qtd < 0) {
             return false;
         }
-
         this.quantidadeDisponivel += qtd;
         return true;
     }
