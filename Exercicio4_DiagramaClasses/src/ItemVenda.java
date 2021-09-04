@@ -34,4 +34,11 @@ public class ItemVenda {
         return this.quantidade*this.precoUnitarioCobrado;
     }
 
+    @Override
+    public String toString() {
+        return "ItemVenda [numero=" + numero + ", precoUnitarioCobrado=" + precoUnitarioCobrado + ", produto=" + produto
+                + ", quantidade=" + quantidade + "]";
+    }
+
+        
 }

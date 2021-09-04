@@ -15,13 +15,16 @@ public class Venda {
         return this.numero;
     }
 
-    public boolean temEstoqueDisponivel(Produto produto, int qtd) {
-        return true;
+    public ItemVenda getItem(int numeroItem) {
+        for (ItemVenda item : this.items) 
+            if (item.getNumero() == numeroItem)
+                return item;
+        return null;
     }
 
     public boolean jaExiste(ItemVenda itemVenda) {
         for (ItemVenda item: items) {
-            if (item == itemVenda) 
+            if (item.getProduto().getCodigo() == itemVenda.getProduto().getCodigo()) 
                 return true; 
         }
         return false;
@@ -42,16 +45,19 @@ public class Venda {
         return this.items.add(item);
     }
 
-    public boolean removeItem(int numeroItem) {
-        return true;
+    public ItemVenda removeItem(int numeroItem) {
+        return this.items.remove(numeroItem-1);
     }
 
     public void imprimeRecibo() {
-
+        
     }
 
     public double getTotal() {
-        return 0.0;
+        double total = 0;
+        for (ItemVenda item: this.items)
+            total += item.getValorItem();
+        return total;
     }
 
     public double getImposto() {
@@ -59,11 +65,16 @@ public class Venda {
     }
     
     public double getDesconto() {
+        if (this.items.size() > 10)
+            return 0.1;
         return 0.0;
     }
 
     public double getValorVenda() {
-        return 0.0;
+        double valorVenda = getTotal();
+        valorVenda = valorVenda - (valorVenda * getDesconto());
+        valorVenda = valorVenda + (valorVenda * getImposto());
+        return valorVenda;
     }
 
     public boolean conclui() {
