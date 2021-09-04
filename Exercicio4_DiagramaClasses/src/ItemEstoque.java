@@ -40,4 +40,11 @@ public class ItemEstoque {
     public boolean removeProduto(int codigo) {
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "ItemEstoque [" + produto + ", quantidade=" + quantidadeDisponivel + "]";
+    }
+
+    
 }
