@@ -1,3 +1,4 @@
+package atividade_2;
 
 
 public abstract class Passagem {

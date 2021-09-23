@@ -1,3 +1,4 @@
+package atividade_2;
 
 
 public class Executive extends Passagem {
